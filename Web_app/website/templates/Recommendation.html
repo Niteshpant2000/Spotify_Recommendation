@@ -1,0 +1,88 @@
+
+{% extends "base.html" %}
+{% block title %}recommendations{% endblock %}
+{% block content %}
+
+    <h1 align="center" style="padding: 20px; font-family: georgia; font-size: 60px; color:rgb(32,47,114)" >RECOMMENDATIONS</h1>
+    
+     <div class="row" style='background-color:rgb(150, 240, 182);'>
+        
+        <div class="table-responsive col-md-6" style="padding-right: 45px; position: relative;" >
+            <h2 align="left" style="font-family: sans-serif; padding:20px; font-size:40px; color:rgb(32,47,114)" >USER DATA</h2>
+            
+
+                <table class='table' style="display: inline-block; border:5px rgb(150,240,182); float: left; padding: 12px;">
+                    <tr>
+                       
+
+                            <th>
+                                <font face='helvetica' size="5" color="202f72"> 
+                                    NAME
+                                </font>
+                                
+                            </th>
+                            <th>
+                                <font face='helvetica' size="5" color="202f72"> 
+                                    ARTIST
+                                </font>
+                                
+                            </th>
+                            <th>
+                                <font face='helvetica' size="5" color="202f72"> 
+                                    LINK
+                                </font>
+                                
+                            </th>
+                            
+                        </tr>
+                        {% for i in range(10) %}
+                            <tr>
+                                
+                                <td><a href={{link[i]}}> <font face='helvetica' size='3px' color='202f72' style='font-weight: bold;'>{{(name.iloc[[i]][i])[0:10]}}</font></a></td>
+                                <td><font face='helvetica' size='3px' color='202f72' >{{artist.iloc[[i]][i]}}</font></td>
+                                <td><a href={{link[i]}}><font face='helvetica' size='3px' color='202f72' >{{link[i]}}</font></a></td>
+                            </tr>
+                        {% endfor %}
+                       
+                </table>
+            </div>
+            <div class="table-responsive col-md-6" style="padding-left: 45px; position: relative;">
+                <h2 align="left" style="font-family: sans-serif; padding:20px;font-size: 40px; color:rgb(32,47,114)">RECOMMENDED</h2>
+                <table class='table' style="display: inline-block; border: 5px rgb(150, 240, 182); float: right; padding: 12px; ">
+                    <tr>
+                        <th>
+                            <font face='helvetica' size="5" color="202f72"> 
+                                NAME
+                            </font>
+                            
+                        </th>
+                        <th>
+                            <font face='helvetica' size="5" color="202f72"> 
+                                ARTIST
+                            </font>
+                            
+                        </th>
+                        <th>
+                            <font face='helvetica' size="5" color="202f72"> 
+                                LINK
+                            </font>
+                            
+                        </th>
+                        {% for music in recommended %}
+                        <tr>
+                          
+                            <td><a href={{music[18]}}> <font face='helvetica' size='3px' color='202f72' style='font-weight: bold;'>{{music[2][0:10]}}</font> </a></td>
+                            <td><font face='helvetica' size='3px' color='202f72' >{{music[17]}}</font></td>
+                            <td><a href={{music[18]}}><font face='helvetica' size='3px' color='202f72' >{{music[18]}}</font></a></td>
+                        </tr>
+                        {% endfor %}
+        
+                </table>
+            
+        </div>
+    </div>
+    
+    </div>
+
+
+{% endblock %}
